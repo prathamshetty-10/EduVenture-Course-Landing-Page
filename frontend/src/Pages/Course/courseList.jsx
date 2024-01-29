@@ -14,6 +14,7 @@ function CourseList(){
     //on first load of component useeffect will load the course Data
     async function loadCourses(){
         await dispatch(getAllCourses());
+        
 
     }
     //you want
