@@ -17,10 +17,14 @@ import morgan from 'morgan';
 
 app.use(express.json());//allowing json data to be sent
 app.use(express.urlencoded({extended:true}))//allowing shit in url also to be sent
-app.use(cors({//cors means cross origin resourse sharing
-    origin:[process.env.FRONTEND_URL],//allowed localhost:3000 client the access
-    credentials:true
-}))
+//app.use(cors({
+    //origin:[process.env.FRONTEND_URL],//allowed localhost:3000 client the access
+   // credentials:true
+//}))
+app.use((req,res,next)=>{
+    res.header('Access-Control-Allow-Origin','*');
+    next();
+})
 app.use(cookieParser());
 app.use(morgan('dev'))//for log management
 //all accesses will display on the console
