@@ -1,0 +1,65 @@
+Learning Management System
+->user login and signup and forget password 
+->editing profile
+->course related details which can be purchased 
+student side
+    ->user module :create accont,login,forgot pass,veiw and edit profile
+    ->course module::veiw courses and details
+    ->payment module:can subscribe to a course and pay
+admin side:basically manager account he can see various stuff like number of registered
+number of subs etc can create cources and all
+    ->user account
+    ->create modify course: list veiw edit delete
+    ->payement related management
+
+
+technology used
+tech stack (mern)mongodb,express,react,nodejs
+
+routes
+student
+    ->user:(/api/v1/user)
+        ->create accout /register
+        ->login /login
+        ->forgot password /changepassword
+        ->me /veiwprofile
+        ->update /updateprofile
+        ->logout /logout
+    ->course(/api/v1/courses)
+        ->veiw courses 
+        ->edit courses etc
+
+
+
+###### we use import modules in this project so add "type":"module"
+###CLODINARY USED FOR FILE UPLOADS
+###SMTP FOR MAIL SENDING
+######
+morgan: when user sends different url n all console meh no such data or log is there for the management
+so to get this log we use morgan npm i morgan --save
+######
+profile pic uploding....postman....body->form->enter all fields and for the file choose file option and upload
+in register(signup) 
+uploads folder gonna store the file which has been converted from binary temporarily
+any request checks if it has form type of request or form type content available
+or avatar key first convert it into image url then send it front
+ie middleware
+multer:handling multipart/form data which is used to upload files (middleware)
+middlware puts the url in req.file
+#####forget password
+email given and url generated with a token url sent on the MAIL
+url opened on browser.....enter new password and update 
+part1: email->validate in db->generate new token
+->send email with new url containing token+save token with expiry in db 
+part2:get token from url query param->verify token in db
+->update password in db
+
+
+a url of form->http://localhost::3000/reset-password/5e51b..........(token) be sent to ur MAIL
+this token is to be put in reset/:resettoken place to form reset/.....the token
+to route to reseting password and give {
+    password:"new password" in raw data
+}
+
+
+#######https://dashboard.razorpay.com/ for plans
