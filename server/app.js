@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use(morgan('dev'))//for log management
 //all accesses will display on the console
 
-app.use('/ping',(req,res)=>{//just to check if server running
+app.use('/',(req,res)=>{//just to check if server running
     res.status(200).json({data:'JWTauth server hi pong'});
 });
 //routes of 3 modules
