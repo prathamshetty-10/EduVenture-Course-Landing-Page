@@ -15,10 +15,10 @@ import morgan from 'morgan';
 
 app.use(express.json());//allowing json data to be sent
 app.use(express.urlencoded({extended:true}))
-//app.use(cors({
-    //origin:[process.env.FRONTEND_URL],//allowed localhost:3000 client the access
-   // credentials:true
-//}))
+app.use(cors({
+    origin:['*'],//allowed localhost:3000 client the access
+   credentials:true
+}))
 app.use((req,res,next)=>{
     res.header('Access-Control-Allow-Origin','*');
     res.header( "Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,PATCH,OPTIONS")
