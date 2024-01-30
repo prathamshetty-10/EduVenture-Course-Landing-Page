@@ -11,7 +11,9 @@ import asyncHandler from '../middleware/asyncHandler.middleware.js'
 
 const cookieOption={
     maxAge:7*24*60*60*1000,//7 days
-    httpOnly:true
+    httpOnly:true,
+    sameSite:'none',
+    secure:true
    
 };
 const register=async(req,res,next)=>{
