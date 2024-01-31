@@ -60,6 +60,9 @@ userSchema.pre('save',async function(next){
     return next();
 })
 userSchema.methods={
+    comparePassword:async function(plainPassword){
+        return await bcrypt.compare(plainPassword,this.password);
+    },
     generateJWTToken(){
         return JWT.sign({
             id:this._id,

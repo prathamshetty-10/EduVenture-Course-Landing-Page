@@ -105,7 +105,8 @@ const login=async(req,res,next)=>{
     const user=await UserModel.findOne({
         email
     }).select('+password');
-    if(!user || !bcrypt.compare(user.password,password)){//used to compare encrypted passwords
+
+    if(!(user && (await user.comparePassword(password))) ){//used to compare encrypted passwords
         //if no such user or password no match
         return next(new AppError("email or password does not match",400));
     }
