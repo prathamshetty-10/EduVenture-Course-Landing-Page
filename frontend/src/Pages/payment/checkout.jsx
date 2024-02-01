@@ -55,13 +55,14 @@ function Checkout(){
     
     
     //when component is used some data has to load
-    async function load(){
-        await dispatch(getRazorpayId());//addcase will put the id in the state itself
-        await dispatch(purchaseCourseBundle());
-        
-    }
+    
     useEffect(()=>{
-        load();
+        (
+            async()=>{
+                await dispatch(getRazorpayId());//addcase will put the id in the state itself
+                await dispatch(purchaseCourseBundle());
+            }
+        )();
     },[])
 
     
