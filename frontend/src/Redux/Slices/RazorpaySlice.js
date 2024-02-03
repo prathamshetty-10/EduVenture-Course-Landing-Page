@@ -13,6 +13,13 @@ const initialState={
 export const getRazorpayId=createAsyncThunk("/razorpay/get",async()=>{
     try{
         const response=await axiosInstance.get("/payment/razorpay-key");
+        toast.promise(response,{
+            loading:"processing",
+            success:(data)=>{
+                return data?.data.message;
+            },
+            error:"Failed to process"
+        });
         return response.data;
     }
     catch(error){
@@ -22,6 +29,13 @@ export const getRazorpayId=createAsyncThunk("/razorpay/get",async()=>{
 export const purchaseCourseBundle=createAsyncThunk("/purchaseCourse",async()=>{
     try{
         const response=await axiosInstance.post("/payment/subscribe");
+        toast.promise(response,{
+            loading:"wait! purchasing",
+            success:(data)=>{
+                return data?.data.message;
+            },
+            error:"Failed to purchase account"
+        });
 
         return response.data;
     }
@@ -35,6 +49,13 @@ export const verifyUserPayment=createAsyncThunk("/payment/verify",async(data)=>{
             razorpay_payment_id:data.razorpay_payment_id,
             razorpay_subscription_id:data.razorpay_subscription_id,
             razorpay_signature:data.razorpay_signature
+        });
+        toast.promise(response,{
+            loading:"wait! verifying your account",
+            success:(data)=>{
+                return data?.data.message;
+            },
+            error:"Failed to verify account"
         });
         return response?.data;
     }
