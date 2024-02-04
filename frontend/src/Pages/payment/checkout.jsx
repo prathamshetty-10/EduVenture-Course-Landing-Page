@@ -14,7 +14,9 @@ function Checkout(){
     const razorpayKey=useSelector((state)=>state?.razorpay?.key);
     const subscription_id=useSelector((state)=>state?.razorpay?.subscription_id);
     const userData=useSelector((state)=>state?.auth?.data)
-    const isPaymentVerified=useSelector((state)=>state?.razorpay?.isPaymentVerified)
+    const isPaymentVerified=useSelector((state)=>state?.razorpay?.isPaymentVerified);
+   
+   
     const paymentDetails={
         razorpay_payment_id:"",
         razorpay_subscription_id:"",
@@ -22,47 +24,52 @@ function Checkout(){
     }
     async function handleSubscription(e){
         e.preventDefault();
-        if(!razorpayKey||!subscription_id){
-            toast.error("something went wrong");
-            return;
-        }
-        const options={//passed to razorpay to process
-            key:razorpayKey,
-            subscription_id:subscription_id,
-            name:"Coursify Pvt. Ltd",
-            description:"Subscription",
-            theme:{//razorpay pop ups theme
-                color:"#F37254"
-            },
-            prefill:{
-                email:userData.email,
-                name:userData.fullName
-            },
-            handler:async function (response){//razorpay seh response object milega//once payment done this handler excecutes
+        const res=await dispatch(verifyUserPayment());//checking in backend if verified
                 
-                paymentDetails.razorpay_payment_id=response.razorpay_payment_id;
-                paymentDetails.razorpay_signature=response.razorpay_signature;
-                paymentDetails.razorpay_subscription_id=response.razorpay_subscription_id;
-                toast.success("payment successful");
-                const res=await dispatch(verifyUserPayment(paymentDetails));//checking in backend if verified
+        res?.payload?.success ?navigate("/checkout/success"):navigate("/checkout/fail");
+
+        //if(!razorpayKey||!subscription_id){
+           // toast.error("something went wrong");
+           //return;
+        //}
+        //const options={//passed to razorpay to process
+            //key:razorpayKey,
+            //subscription_id:subscription_id,
+            //name:"Coursify Pvt. Ltd",
+            //description:"Subscription",
+            //theme:{//razorpay pop ups theme
+                //color:"#F37254"
+            //},
+            //prefill:{
+                //email:userData.email,
+                //name:userData.fullName
+            //},
+            //handler:async function (response){//razorpay seh response object milega//once payment done this handler excecutes
                 
-                res?.payload?.success ?navigate("/checkout/success"):navigate("/checkout/failed");
-            }
-        }
-        const paymentObject=new window.Razorpay(options);
-        paymentObject.open()
+                //paymentDetails.razorpay_payment_id=response.razorpay_payment_id;
+                //paymentDetails.razorpay_signature=response.razorpay_signature;
+                //paymentDetails.razorpay_subscription_id=response.razorpay_subscription_id;
+                //toast.success("payment successful");
+                //new
+
+                //const res=await dispatch(verifyUserPayment(paymentDetails));//checking in backend if verified
+                
+                //res?.payload?.success ?navigate("/checkout/success"):navigate("/checkout/failed");
+            //}
+        //}
+        //const paymentObject=new window.Razorpay(options);
+       // paymentObject.open()
     }
     
     
     //when component is used some data has to load
-    
+    async function load(){
+        //await dispatch(getRazorpayId());//addcase will put the id in the state itself
+        //await dispatch(purchaseCourseBundle());
+        
+    }
     useEffect(()=>{
-        (
-            async()=>{
-                await dispatch(getRazorpayId());//addcase will put the id in the state itself
-                await dispatch(purchaseCourseBundle());
-            }
-        )();
+        load();
     },[])
 
     

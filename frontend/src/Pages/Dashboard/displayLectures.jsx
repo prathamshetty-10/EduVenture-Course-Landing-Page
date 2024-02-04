@@ -28,12 +28,12 @@ function DisplayLectures(){
     },[])
 return(
     <HomeLayout>
-        <div className="flex flex-col   items-center gap-10 justify-center min-h-[90vh] py-10 text-white  bg-gray-800   pt-5  ">
+        <div className="flex flex-col   gap-10 items-center  justify-center min-h-[90vh] py-10 text-white  bg-gray-800">
             <div className="text-center text-2xl font-semibold text-yellow-500 ">
                 Course Name:<div>{state?.title}</div>
             </div>
             {(lectures &&  lectures.length>0)?
-                (<div className=" lg:flex justify-center gap-10 w-[53vh] lg:w-full mx:20 lg:mx-0">
+                (<div className=" lg:flex justify-center gap-10 w-[48vh] lg:w-full  lg:mx-0">
                 {/*left section for videos and course details for admin */}
                 <div className="py-5 space-y-5 w-[20rem] lg:w-[28rem] p-2 rounded-lg shadow-[0_0_10px_black] mx-5 lg:mx-0">
                 
@@ -77,7 +77,7 @@ return(
                     {lectures&& lectures.map((lecture,idx)=>{
                         return(
                             <li key={lecture.id} className="space-y-2 ">
-                                <p className="hover:scale-105 hover:bg-gray-500 text-left px-5 h-10 border cursor-pointer py-1" onClick={()=>setCurrentVideo(idx)}>
+                                <p className="hover:scale-105 hover:bg-gray-500 text-left px-5 h-15 border cursor-pointer py-1" onClick={()=>setCurrentVideo(idx)}>
                                     <span>
                                         {" "}Lecture {idx+1}:{" "}
                                     </span>

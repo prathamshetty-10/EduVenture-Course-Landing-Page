@@ -33,11 +33,12 @@ export const purchaseCourseBundle=createAsyncThunk("/purchaseCourse",async()=>{
 });
 export const verifyUserPayment=createAsyncThunk("/payment/verify",async(data)=>{
     try{
-        const response=await axiosInstance.post("/payment/verify",{
-            razorpay_payment_id:data.razorpay_payment_id,
-            razorpay_subscription_id:data.razorpay_subscription_id,
-            razorpay_signature:data.razorpay_signature
-        });
+        //const response=await axiosInstance.post("/payment/verify",{
+            //razorpay_payment_id:data.razorpay_payment_id,
+            //razorpay_subscription_id:data.razorpay_subscription_id,
+            //razorpay_signature:data.razorpay_signature
+        //});
+        const response=await axiosInstance.post("/payment/verify");
         
         return response?.data;
     }
