@@ -10,7 +10,7 @@ function AboutUs(){
     const celeb=[
         {
             title:"Pratham Shetty",
-            desc: "Second year Engineering student in MIT manipal. I made this project while learning web development. ",
+            desc: "Second year Engineering student in MIT manipal. I made this project when I was learning web development. ",
             image:Pratham,
             slideNumber:1
 
