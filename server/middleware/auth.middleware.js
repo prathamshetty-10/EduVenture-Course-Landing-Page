@@ -4,7 +4,7 @@ import User from "../models/userModels.js";
 
 const isLoggedIn=(req,res,next)=>{
     const token=(req.cookies && req.cookies.token)||null;
-    console.log(token);
+
     if(!token){
         return next(new AppError("unauthenticated,please login again",401));
 
