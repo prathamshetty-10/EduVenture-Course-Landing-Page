@@ -33,7 +33,7 @@ return(
                 Course Name:<div>{state?.title}</div>
             </div>
             {(lectures &&  lectures.length>0)?
-                (<div className=" lg:flex justify-center gap-10 w-[53vh] lg:w-full mx:5 lg:mx-0">
+                (<div className=" lg:flex justify-center gap-10 w-[53vh] lg:w-full mx:auto lg:mx-0">
                 {/*left section for videos and course details for admin */}
                 <div className="py-5 space-y-5 w-[20rem] lg:w-[28rem] p-2 rounded-lg shadow-[0_0_10px_black] mx-5 lg:mx-0">
                 
