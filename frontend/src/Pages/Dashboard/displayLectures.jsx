@@ -28,7 +28,7 @@ function DisplayLectures(){
     },[])
 return(
     <HomeLayout>
-        <div className="flex flex-col px-10 lg:px-0  items-center gap-10 justify-center min-h-[90vh] py-10 text-white  bg-gray-800">
+        <div className="flex flex-col   items-center gap-10 justify-center min-h-[90vh] py-10 text-white  bg-gray-800   pt-5  ">
             <div className="text-center text-2xl font-semibold text-yellow-500 ">
                 Course Name:<div>{state?.title}</div>
             </div>
