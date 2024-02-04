@@ -10,7 +10,7 @@ import asyncHandler from '../middleware/asyncHandler.middleware.js'
 
 
 const cookieOption={
-    maxAge:1*60*60*1000,
+    maxAge:10*24*60*60*1000,
     httpOnly:true,
     sameSite:'none',
     secure:true
