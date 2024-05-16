@@ -9,7 +9,7 @@ function HomePage(){
         <HomeLayout>
             <div className="pt-10 text-white  lg:flex items-center justify-center gap-10 px-10 min-h-[90vh] bg-black">
                 <div className=" w-full mt-20 lg:mt-0 lg:w-1/2 space-y-6">
-                    <h1 className=" text-4xl lg:text-5xl font-semibold">Find Out best  
+                    <h1 className=" text-4xl lg:text-5xl font-semibold">EduVenture:Find The Best  
                     <span className="text-yellow-500 font-bold">  Online Courses</span>
                     </h1>
                     <p className="text-xl text-gray-200">We Have A Large Library Of Courses Taught By highly Skilled And Qualified Faculties At A Very Afoordable Rate </p>
