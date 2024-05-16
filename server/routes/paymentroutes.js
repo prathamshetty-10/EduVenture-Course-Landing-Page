@@ -17,6 +17,6 @@ router
 //routes for admin
 router//only admin can see all the payments made by users
     .route("/count/:count/skip/:skip")
-    .get(isLoggedIn,authorizedRoles("ADMIN"),allPayments);
+    .get(isLoggedIn,authorizedRoles("ADMIN",'USER'),allPayments);
 
 export default router;
