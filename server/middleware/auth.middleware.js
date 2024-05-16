@@ -37,6 +37,7 @@ const authorizedRoles=(...roles)=>async(req,res,next)=>{
 }
 const authorizedSubscriber=async(req,res,next)=>{
     const user1=await User.findById(req.user.id);
+    console.log("this is user")
     console.log(user1);
 
     if( user1.subscription.status !=="active"){
