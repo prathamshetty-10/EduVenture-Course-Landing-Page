@@ -39,7 +39,7 @@ const authorizedSubscriber=async(req,res,next)=>{
     const user1=await User.findById(req.user.id);
     
 
-    if(user1.role!=="ADMIN" && user1.subscription.status !=="active"){
+    if( user1.subscription.status !=="active"){
         return next(new AppError("please subscribe to access",408));
 
     }
