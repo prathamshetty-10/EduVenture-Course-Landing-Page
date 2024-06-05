@@ -17,4 +17,4 @@ deployed the website on 16 th may 2024
 2 nd may 2024 : a lil break and doing arrays
 3 rd may 2024 : doing arrays :)
 4 th may 2024 : doing binary search
-5 th may 2024
+5 th may 2024 :doing linked listes today :)
