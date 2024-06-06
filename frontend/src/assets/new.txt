@@ -18,4 +18,4 @@ deployed the website on 16 th may 2024
 3 rd may 2024 : doing arrays :)
 4 th may 2024 : doing binary search
 5 th may 2024 :doing linked listes today :)
-6 th may 20
+6 th may 2024
